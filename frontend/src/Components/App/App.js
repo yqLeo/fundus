@@ -12,12 +12,15 @@ class App extends React.Component {
 
     this.state = {
       searchResults: [],
+      searchTarget: [],
       details: []
     };
     this.search = this.search.bind(this);
   }
-  search(term) {
+  search(term,wrong) {
       this.setState({searchResults: term});
+      this.setState({searchTarget: term});
+      this.setState({details: wrong});
   }
 
 
@@ -28,9 +31,9 @@ class App extends React.Component {
         <div className="App">
           <SearchBar onSearch={this.search} />
           <div className="App-playlist">
-          <SearchTarget searchTarget={this.state.searchResults}
+          <SearchTarget searchTarget={this.state.searchTarget}
                            onAdd={this.addTrack} />
-            <SearchResults searchResults={this.state.searchResults}
+            <SearchResults searchResults={this.state.searchResults} wrong = {this.state.details}
                            onAdd={this.addTrack} />
           </div>
         </div>

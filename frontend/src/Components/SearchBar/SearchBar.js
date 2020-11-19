@@ -10,7 +10,8 @@ class SearchBar extends React.Component {
     super(props);
 
     this.state = {
-      term: ''
+      term: '',
+      wrong: 'processing'
     };
 
     this.handleTermChange = this.handleTermChange.bind(this);
@@ -22,7 +23,7 @@ class SearchBar extends React.Component {
   }
 
   search() {
-    this.props.onSearch(this.state.term);
+    this.props.onSearch(this.state.term,this.state.wrong);
   }
 
   handleSubmit = event => {
@@ -33,9 +34,10 @@ class SearchBar extends React.Component {
     };
     axios.post("http://localhost:8000/fundus/path/",  user )
     .then(res => {
-      console.log(res);
-      console.log(res.data);
-    })
+    }).catch((error) => {
+      this.setState({wrong: "invalid path >_<"});
+      this.search();
+  })
   }
 
   render() {
