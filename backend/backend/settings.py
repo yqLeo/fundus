@@ -25,7 +25,7 @@ SECRET_KEY = 'nfs*-@h&$ebd4_nph1#lkx9z=*fqy&b42mkyt0j*7pcwal&l(&'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['yq01-qianmo-com-255-130-17.yq01.baidu.com','127.0.0.1', 'localhost']
 
 
 # Application definition
@@ -124,6 +124,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 CORS_ORIGIN_WHITELIST = [
+     'http://yq01-qianmo-com-255-130-17.yq01.baidu.com:8100','http://10.255.130.17:8100',
      'http://localhost:3000'
 ]
 CSRF_COOKIE_SECURE = False

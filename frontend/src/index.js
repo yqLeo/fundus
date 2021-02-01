@@ -3,6 +3,10 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './Components/App/App';
 import reportWebVitals from './reportWebVitals';
+import {useMemo} from 'react';
+import {useDropzone} from 'react-dropzone';
+
+
 
 ReactDOM.render(
   <React.StrictMode>
